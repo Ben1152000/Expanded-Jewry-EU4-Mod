@@ -7,13 +7,21 @@ country_event = { # Reformation of the Sanhedrin
 	desc = expanded_jewry.1.d
 	picture = REFORM_eventPicture
 
+	fire_only_once = yes
+
 	trigger = { 
-		is_year = 1530
+		is_year = 1525
 		NOT = { is_year = 1550 }
+		is_subject = no
 		NOT = { religion = jewish }
-		NOT = { tag = KOJ }
-		NOT = { culture = al_suryah_arabic }
-		owns = 379
+		NOT = { exists = ERZ }
+		NOT = { exists = KOJ }
+		NOT = {
+			capital_scope = {
+				area = palestine_area
+			}
+		}
+		owns = 379 # Jerusalem 
 		OR = {
 			owns = 364 
 			owns = 1854
@@ -27,7 +35,7 @@ country_event = { # Reformation of the Sanhedrin
 
 	option = {
 		name = expanded_jewry.1.a
-		ai_chance = { factor = 100 }
+		ai_chance = { factor = 25 }
 		add_prestige = 5
 		379 = {
 			add_base_tax = -1
@@ -35,18 +43,20 @@ country_event = { # Reformation of the Sanhedrin
 			spawn_rebels = {
 				type = religious_rebels
 				religion = jewish
-				size = 2
+				size = 5
 			}
 		}	
 	}
 	option = {
 		name = expanded_jewry.1.b
+		ai_chance = { factor = 25 }
 		379 = {
 			add_local_autonomy = 50
 		}
 	}
 	option = {
 		name = expanded_jewry.1.c
+		ai_chance = { factor = 50 }
 		379 = {
 			add_base_tax = 1
 			add_base_production = 1
@@ -64,11 +74,18 @@ country_event = { # the Jews Request Independence
 	desc = expanded_jewry.2.d
 	picture = STREET_SPEECH_eventPicture
 
+	fire_only_once = yes
+
 	trigger = { 
 		is_subject = no
 		is_at_war = no
 		NOT = { exists = ERZ } # Israel doesn't exist
 		NOT = { exists = KOJ } # Jerusalem doesn't exist
+		NOT = {
+			capital_scope = {
+				area = palestine_area
+			}
+		}
 		NOT = { religion = jewish }
 		379 = { religion = jewish } # Jerusalem
 		owns = 379    # Jerusalem
@@ -77,16 +94,14 @@ country_event = { # the Jews Request Independence
 	}
 
 	mean_time_to_happen = {
-		months = 1
+		months = 30
 	}
 
 	option = {
 		name = expanded_jewry.2.a
-		ai_chance = { factor = 75 }
+		ai_chance = { factor = 20 }
 		add_stability = -1
 		379 = {
-			add_base_tax = -1
-			add_base_production = -1
 			spawn_rebels = {
 				type = religious_rebels
 				religion = jewish
@@ -96,13 +111,11 @@ country_event = { # the Jews Request Independence
 	}
 	option = {
 		name = expanded_jewry.2.b
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 75 }
 		379 = {
 			add_core = ERZ
 		}
-		379 = {
-			cede_province = ERZ
-		}
+		release = ERZ
 		add_truce_with = ERZ
 		ERZ = {
 			capital_scope = {
@@ -111,6 +124,12 @@ country_event = { # the Jews Request Independence
 					cavalry = 0.1
 				}
 			}
+		}
+		379 = {
+			limit = {
+				is_core = ROOT
+			}
+			remove_core = ROOT
 		}
 	}
 	option = {
@@ -131,8 +150,64 @@ country_event = { # the Jews Request Independence
 				}
 			}
 		}
-		
+		create_march = ERZ
+		ERZ = {
+			add_opinion = {
+				who = ROOT
+				modifier = expanded_jewry_freed_the_jews
+			}
+		}
+		palestine_area = {
+			limit = {
+				is_core = ROOT
+			}
+			remove_core = ROOT
+		}
 	}
 
 }
+
+country_event = { # Revival of the Hebrew language
+	id = expanded_jewry.3
+	title = expanded_jewry.3.t
+	desc = expanded_jewry.3.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = { 
+		is_subject = no
+		is_at_war = no
+		tag = ERZ
+		religion = jewish
+		379 = { religion = jewish } # Jerusalem
+		owns = 379    # Jerusalem
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = expanded_jewry.3.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = { 
+				NOT = { primary_culture = expanded_jewry_israeli }
+			}
+			change_primary_culture = expanded_jewry_israeli
+		}
+		every_province = {
+			limit = {
+				religion = jewish
+				owned_by = ROOT
+			}
+			change_culture = expanded_jewry_israeli
+		}
+	}
+	option = {
+		name = expanded_jewry.3.b
+	}
+}
+
 

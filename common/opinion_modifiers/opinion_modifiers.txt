@@ -1,0 +1,5 @@
+
+expanded_jewry_freed_the_jews = {
+	opinion = 100
+	yearly_decay = 1
+}

@@ -1,0 +1,100 @@
+
+country_decisions = {
+
+	expanded_jewry_israeli_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = expanded_jewry_formed_israel_flag } ###
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = ERZ }
+			NOT = { exists = KOJ }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			religion = jewish
+		}
+		provinces_to_highlight = {
+			province_id = 379	# Jerusalem
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 379			# Jerusalem
+		}
+		effect = {
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			change_tag = ERZ
+			ERZ = {
+				set_capital = 379
+			}
+			palestine_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ERZ
+			}
+			add_country_modifier = {
+				name = centralization_modifier
+				duration = 3650
+			}
+			add_prestige = 50
+			set_country_flag = expanded_jewry_formed_israel_flag
+			
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	expanded_jewry_theocratic_administration = {
+		major = yes
+		potential = {
+			has_dlc = "Common Sense"
+			tag = ERZ
+			NOT = { 
+				government = theocracy
+			}
+		}
+		allow =  {
+			stability = 0
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			change_government = theocracy
+			set_legacy_government = theocratic_government
+			add_stability = 1
+			set_country_flag = recently_changed_government_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
