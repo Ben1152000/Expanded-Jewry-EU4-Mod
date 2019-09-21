@@ -1,0 +1,7 @@
+government = theocracy
+mercantilism = 10
+primary_culture = extended_jewry_israeli
+religion = jewish
+technology_group = western
+capital = 379    # Jerusalem
+fixed_capital = 379 

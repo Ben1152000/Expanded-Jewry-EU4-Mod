@@ -1,0 +1,49 @@
+
+expanded_jewry_jewish = {
+	graphical_culture = westerngfx
+	
+	expanded_jewry_ashkenazi = {
+		dynasty_names = {
+			Bernstein Cohen Feldman Finkelstein Friedman Gabbai Goldberg Goldstein Horowitz Kagan Kaplan Katz Klein Kohen Levi Levin Rosenberg Schlesinger Schneider Schwartz Shapiro Smilowitz Stein Weiss
+		}
+		male_names = {
+			Abran Aharon Abraham Binyamin Chanan Chaim Chai David Hersch Leib Matatyahu Menachem Mordechai Moishe Nachman Natan Shimon Shlomo Shmuel Yaakov Yehudah Yisrael Yitzchak Yosef
+		}
+		female_names = {
+			Avigail Beyla Ester Hanna Haia Leia Malke Maya Rachel Rivke Rosa Sara Shayna
+		}
+	}
+	expanded_jewry_sephardic = {
+		dynasty_names = {
+			Abrami Ben-David Ben-Zion Cohen Dayan Eliyahu Fernandez Guerreiro Lopes Peretz Shapiro Sousa
+		}
+		male_names = {
+			Aaron Abraham Asser Astruc Avigdor Ayyub Bondia Cresques David Elias Iacob Iahuda Isaac Israel Ioseph Izmael Maymon Mordochi Mosse Natan Perfeit Salamo Samuel Vidal Vives
+		}
+		female_names = {
+			Ana Aster Astruga Blanca Bonadona Bonafilia Clara Dolca Goyo Iudea Luna Mayrona Miryam Ora Regina Sara
+		}
+	}
+	expanded_jewry_mizrahi = {
+		dynasty_names = {
+			Abrach Avitan Ben-Abu Cohen Hadad Levy Maimon Mofaz Nazarian Yakobi Zeituni
+		}
+		male_names = {
+			Abraham Avigdor David Ehud Eli Haim Moshe Mordechai Shimon Shlomo Yehoram Yisrael Yitzhak Yossi Yuval
+		}
+		female_names = {
+			Eva Fatima Ofra Paula Rachel
+		}
+	}
+	expanded_jewry_israeli = {
+		dynasty_names = {
+			Ben-Amram Ben-David Ben-Hillel Ben-Moshe Ben-Nahum Ben-Shmuel Ben-Yosef Cohen Levy Israel Shem Yair
+		}
+		male_names = {
+			Alon Amit Amram Avraham Barak Baruch Binyamin David Eli Eleazar Ezra Hillel Itzchak Manasseh Meir Moshe Nahum Nathan Nir Ofer Omri Pinchas Simeon Shammai Shmuel Talmon Yaakov Yehudah Yosef Yochanan
+		}
+		female_names = {
+			Ahuva Avigail Dina Dvora Esther Eva Galit Leah Liora Maya Noah Orah Orit Rachel Rivka Sara Shayna Tamar Yael Yocheved
+		}
+	}
+}

@@ -1,0 +1,138 @@
+
+namespace = expanded_jewry
+
+country_event = { # Reformation of the Sanhedrin
+	id = expanded_jewry.1
+	title = expanded_jewry.1.t
+	desc = expanded_jewry.1.d
+	picture = REFORM_eventPicture
+
+	trigger = { 
+		is_year = 1530
+		NOT = { is_year = 1550 }
+		NOT = { religion = jewish }
+		NOT = { tag = KOJ }
+		NOT = { culture = al_suryah_arabic }
+		owns = 379
+		OR = {
+			owns = 364 
+			owns = 1854
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+		
+	}
+
+	option = {
+		name = expanded_jewry.1.a
+		ai_chance = { factor = 100 }
+		add_prestige = 5
+		379 = {
+			add_base_tax = -1
+			add_base_production = -1
+			spawn_rebels = {
+				type = religious_rebels
+				religion = jewish
+				size = 2
+			}
+		}	
+	}
+	option = {
+		name = expanded_jewry.1.b
+		379 = {
+			add_local_autonomy = 50
+		}
+	}
+	option = {
+		name = expanded_jewry.1.c
+		379 = {
+			add_base_tax = 1
+			add_base_production = 1
+			change_culture = expanded_jewry_sephardic
+			change_religion = jewish
+		}
+		
+	}
+
+}
+
+country_event = { # the Jews Request Independence
+	id = expanded_jewry.2
+	title = expanded_jewry.2.t
+	desc = expanded_jewry.2.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = { 
+		is_subject = no
+		is_at_war = no
+		NOT = { exists = ERZ } # Israel doesn't exist
+		NOT = { exists = KOJ } # Jerusalem doesn't exist
+		NOT = { religion = jewish }
+		379 = { religion = jewish } # Jerusalem
+		owns = 379    # Jerusalem
+		owns = 364    # Gaza
+		owns = 1854   # Jaffa
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = expanded_jewry.2.a
+		ai_chance = { factor = 75 }
+		add_stability = -1
+		379 = {
+			add_base_tax = -1
+			add_base_production = -1
+			spawn_rebels = {
+				type = religious_rebels
+				religion = jewish
+				size = 2
+			}
+		}	
+	}
+	option = {
+		name = expanded_jewry.2.b
+		ai_chance = { factor = 20 }
+		379 = {
+			add_core = ERZ
+		}
+		379 = {
+			cede_province = ERZ
+		}
+		add_truce_with = ERZ
+		ERZ = {
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.6
+					cavalry = 0.1
+				}
+			}
+		}
+	}
+	option = {
+		name = expanded_jewry.2.c
+		ai_chance = { factor = 5 }
+		every_owned_province = {
+			limit = {
+				area = palestine_area
+			}
+			add_core = ERZ
+		}
+		release = ERZ
+		ERZ = {
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.6
+					cavalry = 0.1
+				}
+			}
+		}
+		
+	}
+
+}
+
